@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+<!-- dffdfvgfrsdfgresdfg -->
+<form action="/landlord" method="post">
+
+        <div class="mb-3">
+
+
+            <!-- <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Landlord" type="text"> -->
+            Select landlord:
+            <select name = 'landlord'>
+                <option>{{player1}}</option>
+                <option>{{player2}}</option>
+                <option>{{player3}}</option>
+            </select>
+        </div>
+        <!-- <div class="mb-3"> -->
+            <!-- <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="number"> -->
+            Win / Lose:
+            <select name = 'outcome'>
+                <option>Win</option>
+                <option>Lose</option>
+            </select>
+        <!-- </div> -->
+        <div class="mb-3">
+            <!-- <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="number"> -->
+            <!-- Number of bombs: -->
+
+                <input name = 'num_bomb' class="form-control mx-auto w-auto" id="password" name="password" placeholder="No. of bombs" type="number" step="1" value="0">
+
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<div class = 'section'>
+
+    <h2>Total score</h2>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <!-- <th>{{date}}</th> -->
+                <!-- <th>Index</th> -->
+                <th>{{player1}}</th>
+                <th>{{player2}}</th>
+                <th>{{player3}}</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr>
+
+                    <td>{{total_score[0]['tot1']}}</td>
+                    <td>{{total_score[0]['tot2']}}</td>
+                    <td>{{total_score[0]['tot3']}}</td>
+                </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+<div class="section">
+
+    <h2>The Scores</h2>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <!-- <th>{{date}}</th> -->
+                <th>Index</th>
+                <th>{{player1}}</th>
+                <th>{{player2}}</th>
+                <th>{{player3}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- TODO: Loop through the database entries to display them in this table -->
+            {% for game in scores %}
+                <tr>
+                    <td>{{  game['id'] }}</td>
+                    <td>{{ game[player1] }}</td>
+                    <td>{{ game[player2] }}</td>
+                    <td>{{ game[player3] }}</td>
+                    <td>
+                        <form action="/landlord" method="post">
+                            <input name="id" type="hidden" value="{{ game['id'] }}">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

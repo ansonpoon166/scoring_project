@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/mah_jong_player" method="post">
+        Enter players' names:
+        <div class="mb-3">
+            <input autofocus class="form-control mx-auto w-auto" id="mahjong1" name="player1" placeholder="player1" type="text">
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="mahjong2" name="player2" placeholder="player2" type="text">
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="mahjong3" name="player3" placeholder="player3" type="text">
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="mahjong4" name="player4" placeholder="player3" type="text">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+{% endblock %}
