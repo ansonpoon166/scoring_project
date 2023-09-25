@@ -21,6 +21,10 @@ flask run
 ## Video Demo:
 
 
+https://github.com/ansonpoon166/scoring_project/assets/79363169/5d74984f-c191-481a-942a-e35ac96ba8a4
+
+
+
 ## Description:
 
 ### Python
